@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined JavaScript Examples</title>
+    <style>
+        /* Container styling */
+        .container {
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+
+        #result {
+            text-align: center;
+            font-weight: bold;
+        }
+        body {
+            background-color: rgb(48, 146, 146);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Examples</h1>
+
+        <!-- Button that changes color on click -->
+        <h2>Button Color Change</h2>
+        <button id="colorButton" onclick="changeColor()">Click me to change color!</button>
+
+        <!-- Alert box with greeting based on current time -->
+        <h2>Greeting Message</h2>
+        <p id="greetingMessage">Greeting message will be shown as an alert when the page loads.</p>
+
+        <!-- Simple calculator -->
+        <h2>Simple Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="calculateSum()">Add</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Function to change the button color
+        function changeColor() {
+            var button = document.getElementById("colorButton");
+            button.style.backgroundColor = button.style.backgroundColor === "blue" ? "green" : "blue";
+        }
+
+        // Function to display greeting based on current time
+        function displayGreeting() {
+            var date = new Date();
+            var hour = date.getHours();
+            var greeting;
+
+            if (hour < 12) {
+                greeting = "Good Morning!";
+            } else if (hour < 18) {
+                greeting = "Good Afternoon!";
+            } else {
+                greeting = "Good Evening!";
+            }
+
+            alert(greeting);
+        }
+
+        // Function to calculate the sum of two numbers
+        function calculateSum() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var sum = num1 + num2;
+            document.getElementById("result").innerText = "Result: " + sum;
+        }
+
+        // Call the greeting function when the page loads
+        window.onload = displayGreeting;
+    </script>
+</body>
+</html>
